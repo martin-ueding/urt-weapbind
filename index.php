@@ -45,7 +45,7 @@
 	
 	echo '<a href="">Neu starten</a><br><br>';
 	
-	echo '<form action="config.php" method="post">';
+	echo '<form action="index.php" method="post">';
 	
 	echo '<table border="0" cellpadding="0" cellspacing="7">';
 	echo '<tr>';
