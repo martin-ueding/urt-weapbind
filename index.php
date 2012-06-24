@@ -6,47 +6,47 @@
 		<title>UrT Config Generator</title>
 	</head>
 	<body>
-	
+
 	<h1>UrT Config Generator</h1>
-	
+
 	Hiermit lassen sich Waffen Bindings für UrT erzeugen. Dazu der Reihe nach die Ausrüstung auswählen und dann auf "Weiter" klicken. Je nach dem, was ausgewählt wurde, stehen andere Optionen zur Verfügung. Daher nur den untersten Eintrag ändern, bei Änderungen bitte neu starten.
-	
+
 	<br /><br />
-	
+
 	<?PHP
 	/* Definiere eine Funktion, die Select-Felder (Drop Down) mit Einträgen füllt. Dabei wird auch das Element markiert, was man vorher
 	 * ausgewählt hatte. */
-	
+
 	function op ($value, $text, $select) {
 		if ($select == $value)
 			echo '<option value="'.$value.'" selected>'.$text.'</option>';
 		else
 			echo '<option value="'.$value.'">'.$text.'</option>';
 	}
-	
+
 	/* Gleiche Funktion wie oben, allerdings werden bei den Items 2 und 3 nicht mehr die Elemente angezeigt, die schon vorher ausgewählt worden sind. In dem Fall bricht die Funktion einfach ab */
-	
+
 	function opb ($value, $text, $select, $nummer) {
 		if (($nummer == 2 && $value == $_POST['item1']) or ($nummer == 3 && $value == $_POST['item1']) or ($nummer == 3 && $value == $_POST['item2']))
 		return;
-		
+
 		if ($select == $value)
 			echo '<option value="'.$value.'" selected>'.$text.'</option>';
 		else
 			echo '<option value="'.$value.'">'.$text.'</option>';
 	}
-	
+
 	/* Die wird nicht mehr gebraucht */
-	
+
 	function d ($gruppe) {
 		if (!empty($_POST[$gruppe]))
 			return ' disabled';
 	}
-	
+
 	echo '<a href="">Neu starten</a><br><br>';
-	
+
 	echo '<form action="index.php" method="post">';
-	
+
 	echo '<table border="0" cellpadding="0" cellspacing="7">';
 	echo '<tr>';
 	echo '<td>Sidearm</td>';
@@ -55,7 +55,7 @@
 	op('G', 'Desert Eagle', $_POST['sidearm']);
 	echo '</select></td>';
 	echo '</tr>';
-	
+
 	echo '<tr>';
 	echo '<td>Primary</td>';
 	echo '<td><select name="primary" size="1">';
@@ -72,7 +72,7 @@
 	op('e', 'Colt M4', $_POST['primary']);
 	echo '</select></td>';
 	echo '</tr>';
-	
+
 	if (!empty($_POST['primary'])) {
 		echo '<tr>';
 		echo '<td>Secondary</td>';
@@ -89,7 +89,7 @@
 		echo '</select></td>';
 		echo '</tr>';
 	}
-	
+
 	if (!empty($_POST['secondary'])) {
 		echo '<tr>';
 		echo '<td>Grenades</td>';
@@ -100,7 +100,7 @@
 		echo '</select></td>';
 		echo '</tr>';
 	}
-	
+
 	if (!empty($_POST['grenades'])) {
 		echo '<tr>';
 		echo '<td>1st Item</td>';
@@ -115,7 +115,7 @@
 		echo '</select></td>';
 		echo '</tr>';
 	}
-	
+
 	if (!empty($_POST['item1'])) {
 		echo '<tr>';
 		echo '<td>2st Item</td>';
@@ -134,7 +134,7 @@
 		echo '</select></td>';
 		echo '</tr>';
 	}
-	
+
 	if (!empty($_POST['item2'])) {
 		echo '<tr>';
 		echo '<td>3st Item</td>';
@@ -153,25 +153,25 @@
 		echo '</select></td>';
 		echo '</tr>';
 	}
-	
+
 	if (empty($_POST['item3'])) {
 		echo '<tr>';
 		echo '<td></td>';
 		echo '<td><input type="submit" value="Weiter" /></td>';
 		echo '</tr>';
 	}
-	
+
 	echo '</table>';
-	
+
 	if (!empty($_POST['item3'])) {
 		echo '<br /><br />';
 		echo 'Schreibe in deine autoexec.cfg:<br />';
 		echo '<b>bind X "gear '.$_POST['sidearm'].$_POST['primary'].$_POST['secondary'].$_POST['grenades'].$_POST['item1'].$_POST['item2'].$_POST['item3'].'"</b>';
 		echo '<br><br>Dabei bitte das X durch eine beliebige Taste ersetzen.';
 	}
-	
+
 	echo '</form>';
-	
+
 	?>
 
 	</body>
