@@ -30,9 +30,10 @@ SOFTWARE.
 
 	<h1>UrT Config Generator</h1>
 
-	Hiermit lassen sich Waffen Bindings für UrT erzeugen. Dazu der Reihe nach die Ausrüstung auswählen und dann auf "Weiter" klicken. Je nach dem, was ausgewählt wurde, stehen andere Optionen zur Verfügung. Daher nur den untersten Eintrag ändern, bei Änderungen bitte neu starten.
-
-	<br /><br />
+	<p>Hiermit lassen sich Waffen Bindings für UrT erzeugen. Dazu der Reihe
+nach die Ausrüstung auswählen und dann auf "Weiter" klicken. Je nach dem, was
+ausgewählt wurde, stehen andere Optionen zur Verfügung. Daher nur den untersten
+Eintrag ändern, bei Änderungen bitte neu starten.</p>
 
 	<?PHP
 	/* Definiere eine Funktion, die Select-Felder (Drop Down) mit Einträgen füllt. Dabei wird auch das Element markiert, was man vorher
@@ -185,10 +186,9 @@ SOFTWARE.
 	echo '</table>';
 
 	if (!empty($_POST['item3'])) {
-		echo '<br /><br />';
-		echo 'Schreibe in deine autoexec.cfg:<br />';
-		echo '<b>bind X "gear '.$_POST['sidearm'].$_POST['primary'].$_POST['secondary'].$_POST['grenades'].$_POST['item1'].$_POST['item2'].$_POST['item3'].'"</b>';
-		echo '<br><br>Dabei bitte das X durch eine beliebige Taste ersetzen.';
+		echo '<p>Schreibe in deine autoexec.cfg:<br />';
+		echo '<b>bind X "gear '.$_POST['sidearm'].$_POST['primary'].$_POST['secondary'].$_POST['grenades'].$_POST['item1'].$_POST['item2'].$_POST['item3'].'"</b></p>';
+		echo '<p>Dabei bitte das X durch eine beliebige Taste ersetzen</p>.';
 	}
 
 	echo '</form>';
