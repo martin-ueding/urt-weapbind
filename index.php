@@ -30,10 +30,11 @@ SOFTWARE.
 
 	<h1>UrT Config Generator</h1>
 
-	<p>Hiermit lassen sich Waffen Bindings für UrT erzeugen. Dazu der Reihe
-nach die Ausrüstung auswählen und dann auf "Weiter" klicken. Je nach dem, was
-ausgewählt wurde, stehen andere Optionen zur Verfügung. Daher nur den untersten
-Eintrag ändern, bei Änderungen bitte neu starten.</p>
+	<p>Here you can create weapon and gear bindings for UrbanTerror. Just
+	select the weapons you like to have, select the gear and it will output a
+	string to put into the <code>autoexec.cfg</code>. If you change your mind
+	during the process, please start over since your options depend on your
+	previous selections.</p>
 
 	<?PHP
 	/* Definiere eine Funktion, die Select-Felder (Drop Down) mit Einträgen füllt. Dabei wird auch das Element markiert, was man vorher
@@ -65,7 +66,7 @@ Eintrag ändern, bei Änderungen bitte neu starten.</p>
 			return ' disabled';
 	}
 
-	echo '<a href="">Neu starten</a><br><br>';
+	echo '<a href="">start over</a><br><br>';
 
 	echo '<form action="index.php" method="post">';
 
@@ -179,16 +180,16 @@ Eintrag ändern, bei Änderungen bitte neu starten.</p>
 	if (empty($_POST['item3'])) {
 		echo '<tr>';
 		echo '<td></td>';
-		echo '<td><input type="submit" value="Weiter" /></td>';
+		echo '<td><input type="submit" value="next step" /></td>';
 		echo '</tr>';
 	}
 
 	echo '</table>';
 
 	if (!empty($_POST['item3'])) {
-		echo '<p>Schreibe in deine autoexec.cfg:<br />';
-		echo '<b>bind X "gear '.$_POST['sidearm'].$_POST['primary'].$_POST['secondary'].$_POST['grenades'].$_POST['item1'].$_POST['item2'].$_POST['item3'].'"</b></p>';
-		echo '<p>Dabei bitte das X durch eine beliebige Taste ersetzen</p>.';
+		echo '<p>Put this into your <code>autoexec.cfg</code>:<br />';
+		echo '<b><code>bind X "gear '.$_POST['sidearm'].$_POST['primary'].$_POST['secondary'].$_POST['grenades'].$_POST['item1'].$_POST['item2'].$_POST['item3'].'"</b></code></p>';
+		echo '<p>You will have to replace <code>X</code> with the key you want to assign that load to.</p>.';
 	}
 
 	echo '</form>';
