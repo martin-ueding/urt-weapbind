@@ -187,7 +187,7 @@ SOFTWARE.
 	echo '</table>';
 
 	if (!empty($_POST['item3'])) {
-		echo '<p>Put this into your <code>autoexec.cfg</code>:<br />';
+		echo '<p>Put this into your <code>autoexec.cfg</code> or <code>q3config.cfg</code>:<br />';
 		echo '<b><code>bind X "gear '.$_POST['sidearm'].$_POST['primary'].$_POST['secondary'].$_POST['grenades'].$_POST['item1'].$_POST['item2'].$_POST['item3'].'"</b></code></p>';
 		echo '<p>You will have to replace <code>X</code> with the key you want to assign that load to.</p>.';
 	}
